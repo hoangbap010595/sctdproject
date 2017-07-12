@@ -7,7 +7,7 @@ namespace sctd.somee.com.Models
 {
     public class ConnectionDatabase
     {
-        private static string sqlConnection = "StorageEntitiesUse";
+        private static string sqlConnection = "StockEntities";
 
         public static string strSqlConetion { get { return sqlConnection; } set { sqlConnection = value; } }
     }

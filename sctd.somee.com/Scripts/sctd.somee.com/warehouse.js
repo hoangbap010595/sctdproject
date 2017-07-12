@@ -96,7 +96,6 @@ $(document).ready(function () {
         modal: true,
         visible: false,
         resizable: false,
-        width: 650,
         actions: false
     }).data("kendoWindow");
 

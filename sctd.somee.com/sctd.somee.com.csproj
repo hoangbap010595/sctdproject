@@ -499,6 +499,7 @@
     <Content Include="Scripts\sctd.somee.com\jquery.textillate.js" />
     <Content Include="Scripts\sctd.somee.com\MD5.js" />
     <Content Include="Scripts\sctd.somee.com\request.js" />
+    <Content Include="Scripts\sctd.somee.com\SysAdmin\MasterData.js" />
     <Content Include="Scripts\sctd.somee.com\warehouse.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -517,6 +518,7 @@
     <Content Include="Views\Error\Index.cshtml" />
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\SysAdmin\Index.cshtml" />
+    <Content Include="Views\SysAdmin\MasterData.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

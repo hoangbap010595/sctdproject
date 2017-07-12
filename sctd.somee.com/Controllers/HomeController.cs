@@ -18,10 +18,9 @@ namespace sctd.somee.com.Controllers
 
     public class HomeController : Controller
     {
-
         string strCon = ConfigurationManager.ConnectionStrings[ConnectionDatabase.strSqlConetion].ConnectionString;
         //string strCon = ConfigurationManager.ConnectionStrings["StorageEntitiesUse"].ConnectionString;
-        public List<Dictionary<string, object>> GetTableRows(DataTable dt)
+        private List<Dictionary<string, object>> GetTableRows(DataTable dt)
         {
             List<Dictionary<string, object>> listData = new List<Dictionary<string, object>>();
             Dictionary<string, object> rowData;
