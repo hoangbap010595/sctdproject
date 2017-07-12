@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model sctd.somee.com.Models.AccountViewModel
+
+<link href="~/Content/sctd.somee.com/animate.css" rel="stylesheet" />
+<link href="~/Content/sctd.somee.com/login.css" rel="stylesheet" />
+<script src="~/Scripts/sctd.somee.com/MD5.js"></script>
+<script src="~/Scripts/sctd.somee.com/jquery.lettering.js"></script>
+<script src="~/Scripts/sctd.somee.com/jquery.fittext.js"></script>
+<script src="~/Scripts/sctd.somee.com/jquery.textillate.js"></script>
+
+<div id="login">
+    @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+    {    
+        <span class="fontawesome-user"></span>
+        @*<input type="text" id="txtUsername" placeholder="Tên đăng nhập" />*@
+        @Html.TextBoxFor(model=>model.Account.Username, new { placeholder = "Tên đăng nhập", id= "txtUsername" })
+        <span class="fontawesome-lock"></span>
+        @*<input type="password" id="txtPassword" placeholder="Mật khẩu" />*@
+        @Html.PasswordFor(model => model.Account.Password,new { placeholder = "Mật khẩu", id = "txtPassword" })
+
+        @Html.ValidationSummary()
+        <input type="submit" value="Đăng nhập" id="btnLogin" />
+    }  
+
+</div>
+
+<h1 class="tlt" style="height:50px">H-STOCK SHOES @DateTime.Now.Year</h1>
+
+<script>
+    $(document).ready(function () {
+        $(".tlt").textillate({
+            in: { effect: "flash", shuffle: true, delay: 20 },
+            out: { effect: "pulse", shuffle: true },
+            loop: true
+        });
+    });
+</script>
+

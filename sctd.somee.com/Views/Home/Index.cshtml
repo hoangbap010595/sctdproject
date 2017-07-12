@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/sctd.somee.com/styles.css" rel="stylesheet" />
+<script src="~/Scripts/sctd.somee.com/warehouse.js"></script>
+
+<div id="toolbarStock"></div>
+<div id="gridStock"></div>
+
+<div id="window">
+    <b style="color: red">(*) </b>
+    <label style="font-style: italic; color: red">Kiểm tra đúng thông tin trước khi gửi yêu cầu!</label>
+    <hr />
+    <table class="table">
+        <tr>
+            <td class="ob-left">Vị trí</td>
+            <td>
+                <input id="txtLocation" class="k-textbox" /></td>
+
+            <td class="ob-left">Mã sản phẩm</td>
+            <td>
+                <input id="txtModel" class="k-textbox" /></td>
+        </tr>
+        <tr>
+            <td class="ob-left">Thùng</td>
+            <td>
+                <input id="txtCarton" class="k-textbox" /></td>
+            <td class="ob-left">Kích cỡ</td>
+            <td>
+                <input id="txtSize" class="k-textbox" /></td>
+        </tr>
+        <tr>
+            <td class="ob-left">Mã vạch</td>
+            <td>
+                <input id="txtBarcode" class="k-textbox" /></td>
+            <td class="ob-left">Màu</td>
+            <td>
+                <input id="txtColor" class="k-textbox" /></td>
+        </tr>
+    </table>
+    <hr />
+    <table class="table">
+        <tr>
+            <td class="ob-left">Số lượng</td>
+            <td>
+                <input id="txtQty" />
+                pcs</td>
+        </tr>
+        <tr>
+            <td class="ob-left">Ghi chú</td>
+            <td colspan="2">
+                <input style="width: 100%" id="txtNote" class="k-textbox" required="required" placeholder="Nhập tên người gửi yêu cầu..." /></td>
+            <td></td>
+        </tr>
+    </table>
+    <hr />
+    <label class="ob-left" id="lblMessage">Gửi yêu cầu lấy hàng: <b style="color: red">1</b> pcs</label>
+    <button id="btnAccept" class="k-primary ob-button">Xác nhận</button>
+    <button class="ob-button" id="btnCancel">Hủy bỏ</button>
+
+</div>
+
+<div id="dialog"></div>

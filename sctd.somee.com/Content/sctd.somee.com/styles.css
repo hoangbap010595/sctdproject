@@ -1,0 +1,34 @@
+﻿body {
+    height: 100%;
+}
+  .ob-center {
+        text-align: center;
+    }
+
+    .ob-right {
+        text-align: right;
+    }
+
+    .ob-left {
+        margin-top: 10px;
+        float: left;
+        text-align: center;
+    }
+
+    .ob-red {
+        font-weight: bold;
+        color: red;
+    }
+
+    #wrapper {
+        height: 600px;
+    }
+
+    .table {
+        width: 100%;
+    }
+    .ob-button {
+        float: right;
+        width: 100px;
+        margin: 0 3px;
+    }
