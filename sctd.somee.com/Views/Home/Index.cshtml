@@ -2,15 +2,17 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<link href="~/Content/sctd.somee.com/styles.css" rel="stylesheet" />
-<script src="~/Scripts/sctd.somee.com/warehouse.js"></script>
+
+<script src="~/Scripts/sctd.somee.com/Home/index.js"></script>
 <style>
     .table tbody > tr > td {
         padding: 10px;
         border-top: 1px solid #fff;
     }
 </style>
-
+<script type="text/x-kendo-template" id="template">
+    <span class="lbltitle">||> Trang chính</span>
+</script>
     <div id="toolbarStock"></div>
     <div id="gridView" class="k-grid k-grid-stretch-height-full"></div>
 

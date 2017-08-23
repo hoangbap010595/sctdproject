@@ -25,13 +25,15 @@ namespace sctd.somee.com
                     "~/Content/bootstrap.min.css",
                      "~/Content/kendo/kendo.common.min.css",
                      "~/Content/kendo/kendo.custom.min.css",
-                     "~/Content/kendo/kendo.bootstrap.mobile.min.css"));
+                     "~/Content/kendo/kendo.bootstrap.mobile.min.css",
+                      "~/Content/sctd.somee.com/styles.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                  "~/Scripts/jquery-{version}.js",
                  "~/Scripts/kendo/jszip.min.js",
                       "~/Scripts/kendo/jquery.min.js",
-                      "~/Scripts/kendo/kendo.all.min.js"));
+                      "~/Scripts/kendo/kendo.all.min.js",
+                      "~/Scripts/Excel/xlsx.full.min.js"));
         }
     }
 }

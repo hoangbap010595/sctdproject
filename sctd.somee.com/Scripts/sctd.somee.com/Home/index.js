@@ -27,8 +27,6 @@ $(document).ready(function () {
         else
             alert("Không tìm thấy thông tin dữ liệu.");
     }
-    //Grid
-
     var dataSources = new kendo.data.DataSource({
         transport: {
             read: {
@@ -44,6 +42,7 @@ $(document).ready(function () {
     });
 
     var columns = [
+        { command: { text: "Y", click: onRequest }, title: "YC", width: "80px", filterable: false, locked: true },
         { field: "location", title: "Vị trí", width: "120px", attributes: { class: "ob-center" } },
         { field: "carton", title: "Thùng", width: "120px", attributes: { class: "ob-center" } },
         { field: "barcode", title: "Mã vạch", width: "200px" },
@@ -53,14 +52,13 @@ $(document).ready(function () {
         { field: "color", title: "Màu", width: "150px" },
         { field: "price", title: "Giá", type: "number", format: "{0:#,#}", width: "100px", attributes: { class: "ob-right" } },
         { field: "brand", title: "Nhãn hiệu", width: "180px" },
-        { field: "note", title: "Ghi chú" },
         { field: "date_update", title: "Cập nhật", type: "date", template: "#= kendo.toString(kendo.parseDate(date_update), 'dd-MM-yyyy' )#", width: "100px", filterable: false, attributes: { class: "ob-center" } },
-         { command: { text: "Y", click: onRequest }, title: "YCầu", width: "80px", filterable: false }
+        { field: "notes", title: "Ghi chú", width: "250px" }
     ];
 
     var grid = $("#gridView").kendoGrid({
         dataSource: dataSources,
-        columns: columns,  
+        columns: columns,
         filterable: true,
         sortable: true,
         scrollable: true,
@@ -78,14 +76,7 @@ $(document).ready(function () {
                 previous: "Trang trước"
             }
         },
-        toolbar: [
-            { name: "excel", text: "Xuất Excel" },
-        ],
-        excel: {
-            filterable: true,
-            allPages: true,
-            fileName: "File Stock.xlsx"
-        }
+        toolbar: kendo.template($("#template").html())
     }).data("kendoGrid");
 
     $(".k-grid-back").bind('click', buttonClickHandler);
@@ -131,11 +122,11 @@ $(document).ready(function () {
 
     function onAccept(e) {
         $("#btnAccept").prop("enabled", false);
-        var dFilter = 
+        var dFilter =
             {
                 barcode: $("#txtBarcode").val().trim(),
                 carton: $("#txtCarton").val().trim(),
-                location: $("#txtLocation").val().trim(),          
+                location: $("#txtLocation").val().trim(),
                 qty: kendo.parseInt($("#txtQty").val().trim()),
                 notes: $("#txtNote").val().trim()
             };
@@ -168,7 +159,7 @@ $(document).ready(function () {
         $.ajax({
             type: "POST",
             url: "/Home/InsertRequest",
-            data: dFilter,      
+            data: dFilter,
             success: function (e) {
                 var urlRequest = "/Home/wRequest";
                 window.location.href = urlRequest;

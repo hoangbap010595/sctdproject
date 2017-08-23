@@ -1,9 +1,5 @@
 ﻿$(document).ready(function () {
 
-    function buttonClickHandler(e) {
-        var urlRequest = "/Home";
-        window.location.href = urlRequest;
-    }
     function buttonClickHandlerExcel(e) {
         var gridHistory = $("#gridView").kendoGrid().data("kendoGrid");
         if (gridHistory == null)
@@ -48,7 +44,7 @@
     ];
 
 
-    var gridHistory = $("#gridView").kendoGrid({
+    var grid = $("#gridView").kendoGrid({
         columns: colum,
         dataSource: dataSources,
         reorderable: true,
@@ -70,16 +66,18 @@
         sortable: true,
         filterable: true,
         scrollable: true,
-        toolbar: [
-            { name: "excel", text: "Xuất Excel" }
-        ],
+        toolbar: kendo.template($("#template").html()),
         excel: {
             filterable: true,
             allPages: true,
             fileName: "Yêu cầu trừ hàng.xlsx"
         }
-    }).data("kendoGrid");
+    });
 
+    grid.find(".k-grid-toolbar").on("click", ".k-pager-excel", function (e) {
+        e.preventDefault();
+        grid.data("kendoGrid").saveAsExcel();
+    });
     $(".k-grid-back").bind('click', buttonClickHandler);
 
     function onCancel() {

@@ -54,3 +54,8 @@ textarea {
         width: 100px;
         margin: 0 3px;
     }
+    span.lbltitle{
+        font-weight: bold;
+        font-size: 18px;
+        float: left;
+    }

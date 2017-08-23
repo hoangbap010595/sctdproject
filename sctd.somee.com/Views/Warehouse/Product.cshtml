@@ -1,0 +1,26 @@
+﻿@model int
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/sctd.somee.com/Warehouse/wh.js"></script>
+<style>
+    .table tbody > tr > td {
+        padding: 10px;
+        border-top: 1px solid #fff;
+    }
+</style>
+<input hidden id="kind" value="@Model" />
+<script type="text/x-kendo-template" id="template">
+    <span class="lbltitle">||> Kho > Dữ liệu kho</span>
+    <div class="refreshBtnContainer pull-right">
+        <a href="\\#" class="k-pager-excel k-link k-button" title="Dữ liệu kho"><span class="k-icon k-i-excel"></span>Xuất excel</a>
+    </div>
+    <div class="toolbar pull-right">
+        <label class="category-label" for="kind">Lọc theo:</label>
+        <input type="search" id="kind" style="width: 150px" />
+    </div>
+</script>
+<div id="toolbarStock"></div>
+<div id="gridViewWH" class="k-grid k-grid-stretch-height-full"></div>
+

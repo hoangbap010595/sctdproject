@@ -5,45 +5,17 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
 namespace sctd.somee.com.Controllers
 {
-    [CustomAuthorize(Roles = "superadmin")]
-    public class SysAdminController : Controller
+    public class WarehouseController : Controller
     {
         string strCon = ConfigurationManager.ConnectionStrings[ConnectionDatabase.strSqlConetion].ConnectionString;
-        // GET: SysAdmin
-        public ActionResult Index()
-        {
-            return View();
-        }
-        public ActionResult MasterData()
-        {
-            return View();
-        }
-        public ActionResult InsertData()
-        {
-            return View();
-        }
-        public JsonResult GetProduct()
-        {   
-            List<Dictionary<string, object>> lsStock = new List<Dictionary<string, object>>();
-
-            DataSet ds = SqlHelper.ExecuteDataset(strCon, CommandType.StoredProcedure, "spGetProduct");
-            if (ds.Tables.Count > 0)
-            {
-                lsStock = GetTableRows(ds.Tables[0]);
-            }
-
-            var myJson = Json(lsStock, JsonRequestBehavior.AllowGet);
-            myJson.MaxJsonLength = int.MaxValue;
-            return myJson;
-        }
-
-
+        //string strCon = ConfigurationManager.ConnectionStrings["StorageEntitiesUse"].ConnectionString;
         private List<Dictionary<string, object>> GetTableRows(DataTable dt)
         {
             List<Dictionary<string, object>> listData = new List<Dictionary<string, object>>();
@@ -60,6 +32,28 @@ namespace sctd.somee.com.Controllers
             }
 
             return listData;
+        }
+
+        [CustomAuthorize(Roles = "superadmin,admin")]
+        // GET: Warehouse
+        public ActionResult Product(int kind = -1)
+        {
+            return View(kind);
+        }
+        //Url: /Home/GetStock
+        [CustomAuthorize(Roles = "superadmin,admin")]
+        public JsonResult GetStock()
+        {
+            List<Dictionary<string, object>> lsStock = new List<Dictionary<string, object>>();
+            DataSet ds = SqlHelper.ExecuteDataset(strCon, System.Data.CommandType.StoredProcedure, "spGetStock");
+            if (ds.Tables.Count > 0)
+            {
+                lsStock = GetTableRows(ds.Tables[0]);
+            }
+
+            var myJson = Json(lsStock, JsonRequestBehavior.AllowGet);
+            myJson.MaxJsonLength = int.MaxValue;
+            return myJson;
         }
     }
 }

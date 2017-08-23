@@ -21,7 +21,7 @@
         { field: "descriptionVietnamese", title: "Thông tin", filterable: false },
     ];
 
-    var grid = $("#gridView").kendoGrid({
+    var grid = $("#gridViewMD").kendoGrid({
         dataSource: dataSources,
         columns: columns,
         filterable: true,
@@ -40,14 +40,23 @@
                 previous: "Trang trước"
             }
         },
-        height: $(window).height() - 20,
-        toolbar: [
-            { name: "excel", text: "Xuất Excel" }
-        ],
+        toolbar: kendo.template($("#template").html()),
+        height: $(window).height() - 50,
         excel: {
             filterable: true,
             allPages: true,
-            fileName: "File Stock.xlsx"
+            fileName: "File Item Master Data.xlsx"
         }
-    }).data("kendoGrid");
+    });
+
+    grid.find(".k-grid-toolbar").on("click", ".k-pager-refresh", function (e) {
+        e.preventDefault();
+        grid.data("kendoGrid").dataSource.read();
+        grid.data("kendoGrid").refresh();
+    });
+
+    grid.find(".k-grid-toolbar").on("click", ".k-pager-excel", function (e) {
+        e.preventDefault();
+        grid.data("kendoGrid").saveAsExcel();
+    });
 })

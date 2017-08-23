@@ -358,6 +358,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\SysAdminController.cs" />
+    <Compile Include="Controllers\UploadFileController.cs" />
+    <Compile Include="Controllers\WarehouseController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -483,6 +485,7 @@
     <Content Include="Content\kendo\images\kendoui.ttf" />
     <Content Include="Content\kendo\images\kendoui.woff" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Excel\xlsx.full.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -502,10 +505,12 @@
     <Content Include="Scripts\sctd.somee.com\jquery.lettering.js" />
     <Content Include="Scripts\sctd.somee.com\jquery.textillate.js" />
     <Content Include="Scripts\sctd.somee.com\MD5.js" />
-    <Content Include="Scripts\sctd.somee.com\request.js" />
+    <Content Include="Scripts\sctd.somee.com\Home\request.js" />
     <Content Include="Scripts\menu.js" />
+    <Content Include="Scripts\sctd.somee.com\SysAdmin\InsertData.js" />
     <Content Include="Scripts\sctd.somee.com\SysAdmin\MasterData.js" />
-    <Content Include="Scripts\sctd.somee.com\warehouse.js" />
+    <Content Include="Scripts\sctd.somee.com\Home\index.js" />
+    <Content Include="Scripts\sctd.somee.com\Warehouse\wh.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -526,10 +531,15 @@
     <Content Include="Views\SysAdmin\MasterData.cshtml" />
     <Content Include="Views\Shared\_Scripts.cshtml" />
     <Content Include="Views\Shared\_Menu.cshtml" />
+    <Content Include="Views\Warehouse\Product.cshtml" />
+    <Content Include="Views\SysAdmin\InsertData.cshtml" />
+    <Content Include="Views\Shared\_Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Upload\" />
     <Folder Include="Views\CustomAuthorizeAttribute\" />
+    <Folder Include="Views\UploadFile\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
