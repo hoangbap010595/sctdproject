@@ -42,7 +42,7 @@ $(document).ready(function () {
     });
 
     var columns = [
-        { command: { text: "Y", click: onRequest }, title: "YC", width: "80px", filterable: false, locked: true },
+        { command: { text: "x", click: onRequest, attributes: { class: "k-primary" } }, title: "YC", width: "60px", filterable: false, locked: true },
         { field: "location", title: "Vị trí", width: "120px", attributes: { class: "ob-center" } },
         { field: "carton", title: "Thùng", width: "120px", attributes: { class: "ob-center" } },
         { field: "barcode", title: "Mã vạch", width: "200px" },
