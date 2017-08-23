@@ -59,3 +59,7 @@ textarea {
         font-size: 18px;
         float: left;
     }
+  .k-grid table tr:hover td {
+        background: rgb(107, 188, 242) !important;
+        cursor: pointer;
+    }
