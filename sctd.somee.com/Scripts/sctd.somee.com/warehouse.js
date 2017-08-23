@@ -21,7 +21,7 @@ $(document).ready(function () {
         window.location.href = urlRequest;
     }
     function buttonClickHandlerExcel(e) {
-        var grid = $("#gridStock").kendoGrid().data("kendoGrid");
+        var grid = $("#gridView").kendoGrid().data("kendoGrid");
         if (grid.dataSource != null)
             grid.saveAsExcel();
         else
@@ -36,7 +36,7 @@ $(document).ready(function () {
                 dataType: "json"
             }
         },
-        pageSize: 20,
+        pageSize: 50,
         aggregate: [
             { field: "qty", aggregate: "sum" }
         ]
@@ -58,13 +58,14 @@ $(document).ready(function () {
          { command: { text: "Y", click: onRequest }, title: "YCầu", width: "80px", filterable: false }
     ];
 
-    var grid = $("#gridStock").kendoGrid({
+    var grid = $("#gridView").kendoGrid({
         dataSource: dataSources,
         columns: columns,  
         filterable: true,
         sortable: true,
         scrollable: true,
         resizable: true,
+        height: $(window).height() - 50,
         pageable: {
             messages: {
                 itemsPerPage: "dòng / trang",
@@ -77,10 +78,8 @@ $(document).ready(function () {
                 previous: "Trang trước"
             }
         },
-        height: $(window).height()-20,
         toolbar: [
             { name: "excel", text: "Xuất Excel" },
-            { name: "back", text: "Yêu cầu trừ hàng", className: "k-grid-back" }
         ],
         excel: {
             filterable: true,
@@ -129,6 +128,7 @@ $(document).ready(function () {
         ID_Warehouse = "";
         win.close();
     }
+
     function onAccept(e) {
         $("#btnAccept").prop("enabled", false);
         var dFilter = 

@@ -11,9 +11,8 @@
     }
 </style>
 
-
-<div id="toolbarStock"></div>
-<div id="gridStock"></div>
+    <div id="toolbarStock"></div>
+    <div id="gridView" class="k-grid k-grid-stretch-height-full"></div>
 
 <div id="window">
     <b style="color: red">(*) </b>
@@ -69,3 +68,12 @@
 </div>
 
 <div id="dialog"></div>
+
+<script>
+    $(window).resize(function () {
+        $(window).resize(function () {
+           // $("#gridView").data("kendoGrid").height = $(window).height;
+            //$("#gridView").data("kendoGrid").resize();
+        });
+    });
+</script>

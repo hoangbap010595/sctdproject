@@ -373,20 +373,20 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\kendo\Default\editor.png" />
-    <Content Include="Content\kendo\Default\imagebrowser.png" />
-    <Content Include="Content\kendo\Default\indeterminate.gif" />
-    <Content Include="Content\kendo\Default\loading-image.gif" />
-    <Content Include="Content\kendo\Default\loading.gif" />
-    <Content Include="Content\kendo\Default\loading_2x.gif" />
-    <Content Include="Content\kendo\Default\markers.png" />
-    <Content Include="Content\kendo\Default\markers_2x.png" />
-    <Content Include="Content\kendo\Default\slider-h.gif" />
-    <Content Include="Content\kendo\Default\slider-v.gif" />
-    <Content Include="Content\kendo\Default\sprite.png" />
-    <Content Include="Content\kendo\Default\sprite_2x.png" />
-    <Content Include="Content\kendo\Default\sprite_kpi.png" />
-    <Content Include="Content\kendo\Default\sprite_kpi_2x.png" />
+    <Content Include="Content\kendo\Bootstrap\Default\editor.png" />
+    <Content Include="Content\kendo\Bootstrap\Default\imagebrowser.png" />
+    <Content Include="Content\kendo\Bootstrap\Default\indeterminate.gif" />
+    <Content Include="Content\kendo\Bootstrap\Default\loading-image.gif" />
+    <Content Include="Content\kendo\Bootstrap\Default\loading.gif" />
+    <Content Include="Content\kendo\Bootstrap\Default\loading_2x.gif" />
+    <Content Include="Content\kendo\Bootstrap\Default\markers.png" />
+    <Content Include="Content\kendo\Bootstrap\Default\markers_2x.png" />
+    <Content Include="Content\kendo\Bootstrap\Default\slider-h.gif" />
+    <Content Include="Content\kendo\Bootstrap\Default\slider-v.gif" />
+    <Content Include="Content\kendo\Bootstrap\Default\sprite.png" />
+    <Content Include="Content\kendo\Bootstrap\Default\sprite_2x.png" />
+    <Content Include="Content\kendo\Bootstrap\Default\sprite_kpi.png" />
+    <Content Include="Content\kendo\Bootstrap\Default\sprite_kpi_2x.png" />
     <Content Include="Content\kendo\fonts\DejaVu\LICENSE.txt" />
     <Content Include="Content\kendo\fonts\glyphs\KendoUIGlyphs.svg" />
     <Content Include="Content\kendo\fonts\glyphs\WebComponentsIcons.svg" />
@@ -394,7 +394,10 @@
     <Content Include="Content\kendo\images\kendoui.svg" />
     <Content Include="Content\kendo\images\wp8_icons.png" />
     <Content Include="Content\kendo\images\wp8_inverseicons.png" />
+    <Content Include="Content\kendo\kendo.bootstrap.min.css" />
+    <Content Include="Content\kendo\kendo.bootstrap.mobile.min.css" />
     <Content Include="Content\kendo\kendo.common.min.css" />
+    <Content Include="Content\kendo\kendo.custom.min.css" />
     <Content Include="Content\kendo\kendo.default.min.css" />
     <Content Include="Content\kendo\kendo.default.mobile.min.css" />
     <Content Include="Content\kendo\kendo.rtl.min.css" />
@@ -444,6 +447,7 @@
     <Content Include="Content\kendo\textures\stripe6.png" />
     <Content Include="Content\kendo\textures\transparency.png" />
     <Content Include="Content\kendo\textures\transtexture.png" />
+    <Content Include="Content\menu.css" />
     <Content Include="Content\sctd.somee.com\animate.css" />
     <Content Include="Content\sctd.somee.com\login.css" />
     <Content Include="Content\sctd.somee.com\style.css" />
@@ -499,6 +503,7 @@
     <Content Include="Scripts\sctd.somee.com\jquery.textillate.js" />
     <Content Include="Scripts\sctd.somee.com\MD5.js" />
     <Content Include="Scripts\sctd.somee.com\request.js" />
+    <Content Include="Scripts\menu.js" />
     <Content Include="Scripts\sctd.somee.com\SysAdmin\MasterData.js" />
     <Content Include="Scripts\sctd.somee.com\warehouse.js" />
     <Content Include="Web.config" />
@@ -519,6 +524,8 @@
     <Content Include="Views\Error\NotFound.cshtml" />
     <Content Include="Views\SysAdmin\Index.cshtml" />
     <Content Include="Views\SysAdmin\MasterData.cshtml" />
+    <Content Include="Views\Shared\_Scripts.cshtml" />
+    <Content Include="Views\Shared\_Menu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

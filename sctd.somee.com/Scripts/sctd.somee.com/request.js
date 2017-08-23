@@ -5,7 +5,7 @@
         window.location.href = urlRequest;
     }
     function buttonClickHandlerExcel(e) {
-        var gridHistory = $("#gridHistory").kendoGrid().data("kendoGrid");
+        var gridHistory = $("#gridView").kendoGrid().data("kendoGrid");
         if (gridHistory == null)
             gridHistory.destroy();
         gridHistory.saveAsExcel();
@@ -48,7 +48,7 @@
     ];
 
 
-    var gridHistory = $("#gridHistory").kendoGrid({
+    var gridHistory = $("#gridView").kendoGrid({
         columns: colum,
         dataSource: dataSources,
         reorderable: true,
@@ -66,13 +66,12 @@
             buttonCounts: 5,
             pageSizes: true
         },
-        height: $(window).height() - 20,
+        height: $(window).height() - 50,
         sortable: true,
         filterable: true,
         scrollable: true,
         toolbar: [
-            { name: "excel", text: "Xuất Excel" },
-            { name: "back", text: "Quay lại", className: "k-grid-back k-primary" }
+            { name: "excel", text: "Xuất Excel" }
         ],
         excel: {
             filterable: true,

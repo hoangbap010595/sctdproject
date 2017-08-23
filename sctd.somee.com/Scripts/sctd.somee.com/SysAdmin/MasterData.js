@@ -21,7 +21,7 @@
         { field: "descriptionVietnamese", title: "Thông tin", filterable: false },
     ];
 
-    var grid = $("#gridMasterData").kendoGrid({
+    var grid = $("#gridView").kendoGrid({
         dataSource: dataSources,
         columns: columns,
         filterable: true,

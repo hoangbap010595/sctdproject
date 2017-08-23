@@ -24,8 +24,8 @@ namespace sctd.somee.com
             bundles.Add(new StyleBundle("~/Content/css").Include(
                     "~/Content/bootstrap.min.css",
                      "~/Content/kendo/kendo.common.min.css",
-                     "~/Content/kendo/kendo.silver.min.css",
-                     "~/Content/kendo/kendo.silver.min.css"));
+                     "~/Content/kendo/kendo.custom.min.css",
+                     "~/Content/kendo/kendo.bootstrap.mobile.min.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                  "~/Scripts/jquery-{version}.js",
