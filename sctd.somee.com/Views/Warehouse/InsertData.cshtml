@@ -1,0 +1,63 @@
+﻿
+@* Warehouse*@
+@{
+    ViewBag.Title = "InsertData";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/sctd.somee.com/Warehouse/InsertData.js"></script>
+
+<style>
+    table {
+        margin: 0 auto;
+        width: 80%;
+    }
+
+    .csTable tbody tr td input {
+        width: 100%;
+    }
+
+    .csTable tbody tr {
+        width: 200px;
+    }
+
+    .btnInsert {
+        width: 150px;
+        padding: 10px;
+        font-size: 16px;
+    }
+</style>
+
+<script type="text/x-kendo-template" id="template">
+    <div class="pull-right">
+        <a href="\\#" class="k-pager-insert k-link k-button" title="Nhập dữ liệu"><span class="k-icon k-i-check k-i-checkmark"></span>Nhập dữ liệu</a>
+    </div>
+    <div class="pull-right">
+        <a href="\\#" class="k-pager-getfile k-link k-button" title="Tải form nhập dữ liệu"><span class="k-icon k-i-download"></span>Tải xuống form mẫu</a>
+    </div>
+    <div class="toolbar pull-left">
+        <label class="category-label" for="kind">Nhập theo loại:</label>
+        <input type="search" id="kind" style="width: 150px" />
+    </div>
+</script>
+
+<div id="tabstrip">
+    <ul>
+        <li class="k-disabled">
+            <span class="lbltitle">||> Hệ thống > Nhập dữ liệu Kho</span>
+        </li>
+        <li class="k-state-active">
+            Nhập từ file
+        </li>
+    </ul>
+    <div>
+    </div>
+    <div>
+        <div class="demo-hint">Chọn files <strong>*.xlsx</strong>, <strong>*.xls</strong></div>
+        <input name="files" id="files" type="file" />
+
+        <div id="grid"></div>
+    </div>
+    <div id="dialog"></div>
+    <div id="dialog2"></div>
+</div>
+

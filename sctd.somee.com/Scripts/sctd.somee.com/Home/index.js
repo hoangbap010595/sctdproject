@@ -143,12 +143,16 @@ $(document).ready(function () {
             $("#btnAccept").prop("enabled", true);
             return;
         }
-        var windowWidget = $("#dialog").kendoWindow({
+        var windowWidget = $("#dialog2").kendoWindow({
             title: "Hệ thống đang xử lí",
             content: {
                 template: "Chờ một chút...."
             },
             actions: false,
+            draggable: false,
+            visible: false,
+            modal: true,
+            iframe: true,
             width: 200,
             height: 100
         }).data("kendoWindow");

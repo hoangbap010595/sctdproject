@@ -367,6 +367,8 @@
     <Compile Include="Models\AccountModel.cs" />
     <Compile Include="Models\AccountViewModel.cs" />
     <Compile Include="Models\ConnectionDatabase.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Warehouse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\CustomAuthorizeAttribute.cs" />
     <Compile Include="Security\CustomPrincipal.cs" />
@@ -510,6 +512,7 @@
     <Content Include="Scripts\sctd.somee.com\SysAdmin\InsertData.js" />
     <Content Include="Scripts\sctd.somee.com\SysAdmin\MasterData.js" />
     <Content Include="Scripts\sctd.somee.com\Home\index.js" />
+    <Content Include="Scripts\sctd.somee.com\Warehouse\InsertData.js" />
     <Content Include="Scripts\sctd.somee.com\Warehouse\wh.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -534,10 +537,13 @@
     <Content Include="Views\Warehouse\Product.cshtml" />
     <Content Include="Views\SysAdmin\InsertData.cshtml" />
     <Content Include="Views\Shared\_Login.cshtml" />
+    <Content Include="Upload\Form\MasterItem.xlsx" />
+    <Content Include="Upload\Form\WarehouseItem.xlsx" />
+    <Content Include="Views\Warehouse\InsertData.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Upload\" />
+    <Folder Include="Upload\FileImport\" />
     <Folder Include="Views\CustomAuthorizeAttribute\" />
     <Folder Include="Views\UploadFile\" />
   </ItemGroup>

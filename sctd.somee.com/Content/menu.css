@@ -96,7 +96,7 @@ color: #ffffff;
 }
 .menu > li:hover .submenu, .menu > li:focus .submenu {
 max-height: 2000px;
-min-width:260px;
+min-width:220px;
 z-index: 10;
 }
 .menu > li:hover .submenu li, .menu > li:focus .submenu li {

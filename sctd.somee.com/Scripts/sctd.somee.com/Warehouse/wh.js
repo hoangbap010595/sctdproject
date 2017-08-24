@@ -62,7 +62,7 @@ $(document).ready(function () {
         { field: "color", title: "Màu", width: "150px" },
         { field: "price", title: "Giá", type: "number", format: "{0:#,#}", width: "100px", attributes: { class: "ob-right" } },
         { field: "brand", title: "Nhãn hiệu", width: "180px" },
-        { field: "notes", title: "Ghi chú", width: "250px" },
+        { field: "notes", title: "Ghi chú", width: "250px",attributes: { class: "ob-red" } },
         { field: "date_update", title: "Cập nhật", type: "date", template: "#= kendo.toString(kendo.parseDate(date_update), 'dd-MM-yyyy' )#", width: "100px", filterable: false, attributes: { class: "ob-center" } },
         { field: "date_insert", title: "Ngày nhập", type: "date", template: "#= kendo.toString(kendo.parseDate(date_insert), 'dd-MM-yyyy' )#", width: "120px", filterable: false, attributes: { class: "ob-center" } }    
     ];

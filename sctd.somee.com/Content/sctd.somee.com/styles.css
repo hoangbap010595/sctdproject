@@ -63,3 +63,7 @@ textarea {
         background: rgb(107, 188, 242) !important;
         cursor: pointer;
     }
+
+  .winMessage{
+      margin: 5px;
+  }

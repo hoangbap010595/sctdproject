@@ -1,4 +1,5 @@
-﻿$(document).ready(function () {
+﻿//Warehouse/InsertData
+$(document).ready(function () {
     $("#tabstrip").kendoTabStrip({
         animation: {
             open: {
@@ -14,14 +15,11 @@
     var dataFromFile = [];
     var grid = $("#grid").kendoGrid({
         columns: [
-            { field: "Barcode", title: "Mã vạch" },
-            { field: "Model", title: "Mã sản phẩm" },
-            { field: "Size", title: "Kích thước" },
-            { field: "Color", title: "Màu" },
-            { field: "Price", title: "Giá" },
-            { field: "Brand", title: "Nhãn hiệu" },
-            { field: "Article", title: "Mã vật tư" },
-            { field: "Description", title: "Mô tả" }
+            { field: "Barcode", title: "Mã vạch", width: 130 },
+            { field: "Carton", title: "Thùng", width: 130 },
+            { field: "Location", title: "Vị trí", width: 130 },
+            { field: "Quantity", title: "Số lượng", width: 130 },
+            { field: "Notes", title: "Ghi chú", width: 330 }
         ],
         filterable: false,
         sortable: true,
@@ -43,6 +41,51 @@
         },
     });
 
+    var dropDown = grid.find("#kind").kendoDropDownList({
+        dataTextField: "Value",
+        dataValueField: "ID",
+        dataSource: [
+            { ID: 1, Value: "Bình Thường" }
+            , { ID: 2, Value: "Hàng Lỗi" }
+            , { ID: 3, Value: "Block" }
+            , { ID: 4, Value: "Không tem giá" }
+        ],
+        value: 0,
+        change: function () {
+            var value = this.value();
+            switch (value) {
+                case "1":
+                    for (var i = 0; i < dataFromFile.length; i++) {
+                        delete dataFromFile[i].PError;
+                        delete dataFromFile[i].PNoTag;
+                        delete dataFromFile[i].PBlock;
+                    }
+                    break;
+                case "2":
+                    for (var i = 0; i < dataFromFile.length; i++) {
+                        dataFromFile[i].PError = true;
+                        delete dataFromFile[i].PNoTag;
+                        delete dataFromFile[i].PBlock;
+                    }
+                    break;
+                case "3":
+                    for (var i = 0; i < dataFromFile.length; i++) {
+                        delete dataFromFile[i].PError;
+                        delete dataFromFile[i].PNoTag;
+                        dataFromFile[i].PBlock = true;
+                    }
+                    break;
+                case "4":
+                    for (var i = 0; i < dataFromFile.length; i++) {
+                        delete dataFromFile[i].PError;
+                        dataFromFile[i].PNoTag = true;
+                        delete dataFromFile[i].PBlock;
+                    }
+                    break;
+            }
+            console.log(dataFromFile);
+        }
+    });
     function onSuccess(e) {
         var fileName = getFileInfo(e);
         removeOrderFile(fileName);
@@ -115,7 +158,7 @@
                 title: "Thông báo",
                 content: "Không tìm thấy dữ liệu cần import!",
                 actions: [
-                    { text: 'Quay lại', primary: true}
+                    { text: 'Quay lại', primary: true }
                 ]
             }).data("kendoDialog").open();
             return;
@@ -124,7 +167,7 @@
 
     grid.find(".k-grid-toolbar").on("click", ".k-pager-getfile", function (e) {
         e.preventDefault();
-        var url = "/UploadFile/DownloadFile?fileName=MasterItem.xlsx"
+        var url = "/UploadFile/DownloadFile?fileName=WarehouseItem.xlsx"
         window.open(url);
     });
 
@@ -152,69 +195,8 @@
 
         $.ajax({
             type: "POST",
-            url: "/SysAdmin/InsertData",
+            url: "/Warehouse/InsertData",
             data: { products: dataFromFile },
-            success: function (e) {
-                console.log(e);
-                windowWidget.close();
-                $("#dialog").kendoDialog({
-                    width: 400,
-                    closable: false,
-                    title: "Nhập dữ liệu hoàn thành",
-                    content: e.success,
-                    actions: [{ text: 'Xác nhận', primary: true }]
-                }).data("kendoDialog").open();
-               
-            },
-            error: function (e) {
-                windowWidget.close();
-                $("#dialog").kendoDialog({
-                    width: 400,
-                    closable: false,
-                    title: "Quá trình xảy ra lỗi",
-                    content: e.error,
-                    actions: [{ text: 'Quay lại', primary: true }]
-                }).data("kendoDialog").open();
-            }
-        })
-    }
-
-    //Nhập 1 dòng dữ liệu
-    function insertOneRecord() {
-        var windowWidget = $("#dialog2").kendoWindow({
-            title: "Hệ thống đang xử lí",
-            content: {
-                template: "<span id=\"message\" class=\"winMessage\">Vui lòng chờ đến khi tiến trình kết thúc.</span>"
-            },
-            actions: false,
-            draggable: false,
-            visible: false,
-            modal: true,
-            iframe: true,
-            width: 222,
-            height: 111
-        }).data("kendoWindow");
-
-        windowWidget.center().open();
-        kendo.ui.progress(windowWidget.element, true);
-
-        $.ajax({
-            type: "POST",
-            url: "/SysAdmin/InsertData",
-            data: {
-                products: [
-                    {
-                        Barcode: $("#txtBarcode").val()
-                        , Model: $("#txtModel").val()
-                        , Size: $("#txtSize").val()
-                        , Color: $("#txtColor").val()
-                        , Price: $("#txtPrice").val()
-                        , Brand: $("#txtBrand").val()
-                        , Article: $("#txtDivisionCode").val()
-                        , Description: $("#txtDescriptionVietnamese").val()
-                    }
-                ]
-            },
             success: function (e) {
                 console.log(e);
                 windowWidget.close();

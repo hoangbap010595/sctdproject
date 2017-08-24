@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -28,8 +29,40 @@ namespace sctd.somee.com.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public JsonResult InsertData(IEnumerable<Product> products)
+        {
+            Dictionary<string, object> content = new Dictionary<string, object>();
+            if (products == null)
+                content.Add("error", "Không có dữ liệu");
+            else
+            {
+                int total = 0;
+                foreach (Product p in products)
+                {
+                    SqlParameter[] para = new SqlParameter[] {
+                        new SqlParameter("@barcode",p.Barcode)
+                        ,new SqlParameter("@model",p.Model)
+                        ,new SqlParameter("@size",p.Size)
+                        ,new SqlParameter("@color",p.Color)
+                        ,new SqlParameter("@price", p.Price)
+                        ,new SqlParameter("@brand",p.Brand)
+                        ,new SqlParameter("@division_code",p.Article)
+                        ,new SqlParameter("@descriptionVietnamese",p.Description)
+                    };
+                    int i = SqlHelper.ExecuteNonQuery(strCon, CommandType.StoredProcedure, "spInsertProduct", para);
+                    if(i!=-1)
+                        total++;
+                }
+                content.Add("success", "Insert thành công: " + total + "/" + products.Count());
+            }
+            var myJson = Json(content, JsonRequestBehavior.AllowGet);
+            myJson.MaxJsonLength = int.MaxValue;
+            return myJson;
+        }
         public JsonResult GetProduct()
-        {   
+        {
             List<Dictionary<string, object>> lsStock = new List<Dictionary<string, object>>();
 
             DataSet ds = SqlHelper.ExecuteDataset(strCon, CommandType.StoredProcedure, "spGetProduct");

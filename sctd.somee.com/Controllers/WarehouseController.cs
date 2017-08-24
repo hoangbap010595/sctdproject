@@ -36,10 +36,50 @@ namespace sctd.somee.com.Controllers
 
         [CustomAuthorize(Roles = "superadmin,admin")]
         // GET: Warehouse
-        public ActionResult Product(int kind = -1)
+        public ActionResult Product()
         {
-            return View(kind);
+            return View();
         }
+        public ActionResult InsertData()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public JsonResult InsertData(IEnumerable<Warehouse> products)
+        {
+            Dictionary<string, object> content = new Dictionary<string, object>();
+            if (products == null)
+                content.Add("error", "Không có dữ liệu");
+            else
+            {
+                int total = 0;
+                foreach (Warehouse p in products)
+                {
+                    SqlParameter[] para = new SqlParameter[] {
+                        new SqlParameter("@barcode",p.Barcode)
+                        ,new SqlParameter("@carton",p.Carton)
+                        ,new SqlParameter("@location",p.Location)
+                        ,new SqlParameter("@qty",p.Quantity)
+                        ,new SqlParameter("@date_insert", p.DateInsert)
+                        ,new SqlParameter("@date_update",p.DateUpdate)
+                        ,new SqlParameter("@notes",p.Notes)
+                        ,new SqlParameter("@product_error",p.PError)
+                        ,new SqlParameter("@product_no_tag",p.PNoTag)
+                        ,new SqlParameter("@product_block",p.PBlock)
+                        ,new SqlParameter("@ItemID",p.ItemID)
+                    };
+                    int i = SqlHelper.ExecuteNonQuery(strCon, CommandType.StoredProcedure, "spInsertDataWarehouse", para);
+                    if (i != -1)
+                        total++;
+                }
+                content.Add("success", "Insert thành công: " + total + "/" + products.Count());
+            }
+            var myJson = Json(content, JsonRequestBehavior.AllowGet);
+            myJson.MaxJsonLength = int.MaxValue;
+            return myJson;
+        }
+
         //Url: /Home/GetStock
         [CustomAuthorize(Roles = "superadmin,admin")]
         public JsonResult GetStock()

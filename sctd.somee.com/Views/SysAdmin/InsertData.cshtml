@@ -3,7 +3,6 @@
     ViewBag.Title = "InsertData";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<script src="~/Scripts/Excel/xlsx.full.min.js"></script>
 <script src="~/Scripts/sctd.somee.com/SysAdmin/InsertData.js"></script>
 
 <style>
@@ -24,16 +23,25 @@
     }
 </style>
 
+<script type="text/x-kendo-template" id="template">
+    <div class="pull-right">
+        <a href="\\#" class="k-pager-insert k-link k-button" title="Nhập dữ liệu"><span class="k-icon k-i-check k-i-checkmark"></span>Nhập dữ liệu</a>
+    </div>
+    <div class="pull-right">
+        <a href="\\#" class="k-pager-getfile k-link k-button" title="Tải form nhập dữ liệu"><span class="k-icon k-i-download"></span>Tải xuống form mẫu</a>
+    </div>
+</script>
+
 <div id="tabstrip">
     <ul>
         <li class="k-disabled">
             <span class="lbltitle">|| Nhập dữ liệu Master Data</span>
         </li>
-        <li class="k-state-active">
+        <li>
             Nhập 1 sản phẩm
         </li>
-        <li>
-            Nhập theo file
+        <li class="k-state-active">
+            Nhập từ file
         </li>
     </ul>
     <div>     
@@ -96,5 +104,6 @@
         <div id="grid"></div>
     </div>
     <div id="dialog"></div>
+    <div id="dialog2"></div>
 </div>
 
