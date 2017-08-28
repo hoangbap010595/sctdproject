@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "MasterData";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/sctd.somee.com/SysAdmin/MasterData.js"></script>
+
+<script type="text/x-kendo-template" id="template">
+    <span class="lbltitle">||> Hệ thống > Master Data</span>
+    <div class="refreshBtnContainer pull-right">
+        <a href="\\#" class="k-pager-excel k-link k-button" title="Master Data"><span class="k-icon k-i-excel"></span>Xuất Excel</a>
+    </div>
+    <div class="refreshBtnContainer pull-right">
+        <a href="/SysAdmin/InsertData" class="k-link k-button" title="Nhập dữ liệu Master Data"><span class="k-icon k-i-hyperlink-open"></span>Nhập dữ liệu</a>
+    </div>
+   
+</script>
+
+<div id="gridViewMD"></div>
+

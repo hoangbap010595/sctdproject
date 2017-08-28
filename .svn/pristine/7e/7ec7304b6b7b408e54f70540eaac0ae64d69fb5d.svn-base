@@ -1,0 +1,27 @@
+﻿<link rel="stylesheet" href="~/Content/menu.css" />
+<ul class="menu">
+    <li><a href="/Home/Index"><span class="k-icon .k-i-home"></span>Trang chính</a></li>
+    <li>
+        <a href="\\#">Kho</a>
+        <ul class="submenu">
+            <li><a href="/Warehouse/Product">Dữ liệu kho</a></li>
+            <li><a href="/Home/wRequest">Yêu cầu trừ hàng</a></li>
+        </ul>
+    </li>
+    <li class="active">
+        <a href="\\#">Hệ thống</a>
+        <ul class="submenu">
+            <li><a href="/SysAdmin/MasterData">Master Data</a></li>
+            <li><a href="#">Nhập dữ liệu kho</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="\\#">Nhật ký</a>
+        <ul class="submenu">
+            <li><a href="#">Nhập hàng</a></li>
+            <li><a href="#">Xuất hàng</a></li>
+        </ul>
+    </li>
+    <li><a href="\\#">Thông tin</a></li>
+    @Html.Partial("_Login");
+</ul>

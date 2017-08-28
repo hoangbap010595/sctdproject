@@ -1,0 +1,12 @@
+﻿
+@if (HttpContext.Current.Session["username"].ToString() == "")
+{
+     <li class="pull-right"><a href="/Login"><span class="k-icon .k-i-login"></span>Login</a></li>
+}
+else
+{
+    <li class="pull-right">
+        <span hidden>@HttpContext.Current.Session["username"].ToString()</span>
+        <a href="/Login/Logout"> <span class="k-icon .k-i-logout"></span>Logout</a>
+    </li>
+}

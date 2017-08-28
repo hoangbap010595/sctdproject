@@ -1,0 +1,100 @@
+﻿
+@{
+    ViewBag.Title = "InsertData";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/Scripts/Excel/xlsx.full.min.js"></script>
+<script src="~/Scripts/sctd.somee.com/SysAdmin/InsertData.js"></script>
+
+<style>
+    table{
+        margin: 0 auto;
+        width: 80%;
+    }
+    .csTable tbody tr td input{
+        width: 100%;
+    }
+    .csTable tbody tr{
+        width: 200px;
+    }
+    .btnInsert{
+        width: 150px;
+        padding:10px;
+        font-size:16px;
+    }
+</style>
+
+<div id="tabstrip">
+    <ul>
+        <li class="k-disabled">
+            <span class="lbltitle">|| Nhập dữ liệu Master Data</span>
+        </li>
+        <li class="k-state-active">
+            Nhập 1 sản phẩm
+        </li>
+        <li>
+            Nhập theo file
+        </li>
+    </ul>
+    <div>     
+    </div>
+    <div>
+        <table>
+            <tr>
+                <td>
+                        <table class="csTable">
+                            <tr>
+                                <td>Mã vạch</td>
+                                <td><input class="k-textbox" id="txtBarcode" /></td>
+                            </tr>
+                            <tr>
+                                <td>Mã sản phẩm</td>
+                                <td><input class="k-textbox" id="txtModel" /></td>
+                            </tr>
+                            <tr>
+                                <td>Mã vật tư</td>
+                                <td><input class="k-textbox" id="txtDivisionCode" /></td>
+                            </tr>
+                            <tr>
+                                <td>Kích thước</td>
+                                <td><input class="k-textbox" id="txtSize" /></td>
+                            </tr>
+                        </table>
+                </td>
+                <td>
+                        <table class="csTable">
+                            <tr>
+                                <td>Màu sắc</td>
+                                <td><input class="k-textbox" id="txtColor" /></td>
+                            </tr>
+                            <tr>
+                                <td>Giá sảm phẩm</td>
+                                <td><input class="k-textbox" id="txtPrice" /></td>
+                            </tr>
+                            <tr>
+                                <td>Nhãn hiệu</td>
+                                <td><input class="k-textbox" id="txtBrand" /></td>
+                            </tr>
+                            <tr>
+                                <td>Mô tả sản phẩm</td>
+                                <td><input class="k-textbox" id="txtDescriptionVietnamese" /></td>
+                            </tr>
+                        </table>
+                </td>
+            </tr>
+            <tr style="text-align:center;">
+                <td colspan="2"><div id="btnInsert" class="k-button btnInsert k-primary">Thêm</div></td>
+                <td></td>
+            </tr>
+        </table>
+           
+        </div>
+    <div>
+        <div class="demo-hint">Chọn files <strong>*.xlsx</strong>, <strong>*.xls</strong></div>
+        <input name="files" id="files" type="file" />
+
+        <div id="grid"></div>
+    </div>
+    <div id="dialog"></div>
+</div>
+

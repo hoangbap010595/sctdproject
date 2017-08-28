@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "History";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/sctd.somee.com/Home/request.js"></script>
+
+<script type="text/x-kendo-template" id="template">
+    <span class="lbltitle">||> Kho > Yêu cầu trừ hàng</span>
+    <div class="refreshBtnContainer pull-right">
+        <a href="\\#" class="k-pager-excel k-link k-button" title="Yêu cầu trừ hàng"><span class="k-icon k-i-excel"></span>Xuất excel</a>
+    </div>
+</script>
+
+<div id="toolbar"></div>
+<div id="gridView"></div>

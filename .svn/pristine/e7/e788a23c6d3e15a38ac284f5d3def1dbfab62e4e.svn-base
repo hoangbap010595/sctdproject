@@ -1,0 +1,61 @@
+﻿body {
+    padding: 0 5px;
+    background: linear-gradient(#292929, #252525);
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+ .ob-center {
+        text-align: center;
+    }
+
+    .ob-right {
+        text-align: right;
+    }
+
+    .ob-left {
+        margin-top: 10px;
+        float: left;
+        text-align: center;
+    }
+
+    .ob-red {
+        font-weight: bold;
+        color: red;
+    }
+
+    #wrapper {
+        height: 600px;
+    }
+
+    .table {
+        width: 100%;
+    }
+    .ob-button {
+        float: right;
+        width: 100px;
+        margin: 0 3px;
+    }
+    span.lbltitle{
+        font-weight: bold;
+        font-size: 18px;
+        float: left;
+    }

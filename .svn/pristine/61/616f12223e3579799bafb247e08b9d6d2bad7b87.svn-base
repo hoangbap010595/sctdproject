@@ -1,0 +1,5 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Bạn không được cấp quyền truy cập vào trang này!</h2>
